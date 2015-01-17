@@ -47,10 +47,10 @@ class User extends CI_Controller
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
 			$this -> authlib -> log_in($data);
-			echo json_encode(array('is_successful' => 1));
+			echo json_encode(array(array('is_successful' => 1)));
 		}
 		else
-			echo json_encode(array('is_successful' => 0));
+			echo json_encode(array(array('is_successful' => 0)));
 	}
 
 	public function log_out()

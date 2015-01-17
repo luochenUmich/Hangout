@@ -18,10 +18,6 @@ class Activity extends CI_Controller
 	{
 		$data['category'] = $this -> input -> post('category');
 		$result = $this -> activitymodel -> get_activities($data);
-		if(count($result) == 0)
-			$result['is_successful'] = 0;
-		else 
-			$result['is_successful'] = 1;
 		echo json_encode($result);
 	}
 
