@@ -14,6 +14,11 @@ class Authmodel extends CI_Model
 	public function sign_up($data)
 	{
 		$this -> db -> insert('user', $data);
+		$this -> db -> select();
+		$this -> db -> from('user');
+		$this -> db -> where($data);
+		$result = $this -> db -> get() -> result_array();
+		return $result[0]['id'];
 	}
 
 	public function get_user_info($activity_id)

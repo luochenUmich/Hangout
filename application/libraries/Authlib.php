@@ -15,18 +15,20 @@ class Authlib
 	function log_in($data)
 	{
 		$data['user_id'] = $data['id'];
-		$data['is_login'] = true;
-		$this -> ci -> session -> set_userdata($data);
+		$this -> ci -> db -> insert('current_user', $data);
 	}
 
 	function get_user_id()
 	{
-		return $this -> ci -> session -> userdata('user_id');
+		$this -> ci -> db -> select();
+		$this -> ci -> db -> from('current _user');
+		$user = $this -> ci -> db -> get() -> result_array();
+		return $user[0]['user_id'];
 	}
 
 	function log_out()
 	{
-		$this -> ci -> session -> sess_destroy();
+		$this -> ci -> db -> sess_destroy();
 	}
 
 	function is_log_in()

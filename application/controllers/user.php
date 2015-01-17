@@ -10,7 +10,6 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 
-		$this -> load -> library('authlib');
 		$this -> load -> model('authmodel');
 		//$this -> load -> model('picturemodel');
 		//$this -> load -> library('awslib', array('name' => 's3'));
@@ -34,8 +33,8 @@ class User extends CI_Controller
 				$data['gender'] = 2;
 
 			$data['picture_url'] = $this -> input -> post('picture_url');
-			$this -> authmodel -> sign_up($data);
-			echo json_encode(array(array('is_successful' => 1)));
+			$current_user_id = $this -> authmodel -> sign_up($data);
+			echo json_encode(array(array('is_successful' => 1, 'current_user_id' => $current_user_id)));
 		}
 		else
 			echo json_encode(array(array('is_successful' => 0)));
@@ -59,17 +58,12 @@ class User extends CI_Controller
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
 			$this -> authlib -> log_in($data);
-			echo json_encode(array(array('is_successful' => 1)));
+			echo json_encode(array(array('is_successful' => 1, "current_user_id" => $data['id'])));
 		}
 		elseif($login_result == 0)
 			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Incorrect password!')));
 		else
 			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Unrecognized username!')));
-	}
-
-	public function log_out()
-	{
-		$this -> authlib -> log_out();
 	}
 
 	// public function upload_picture()

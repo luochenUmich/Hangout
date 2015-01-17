@@ -11,18 +11,36 @@ class Activity extends CI_Controller
 		parent::__construct();
 		$this -> load -> model('activitymodel');
 		$this -> load -> model('authmodel');
-		//$this -> load -> library('authlib');
 	}
 
 	public function get_activities()
 	{
-		$data['category'] = $this -> input -> post('category');
+		$category = $this -> input -> post('category');
+		switch($category)
+		{
+			case 'food':
+				$data['category'] = 0;
+				break;
+			case 'sport':
+				$data['category'] = 1;
+				break;
+			case 'study':
+				$data['category'] = 2;
+				break;
+			case 'movie':
+				$data['category'] = 3;
+				break;
+			case 'other':
+				$data['category'] = 4;
+				break;
+		}
 		$result = $this -> activitymodel -> get_activities($data);
 		echo json_encode($result);
 	}
 
 	public function post_activity()
 	{
+		$current_user_id = $this -> input -> post('current_user_id');
 		$data['title'] = $this -> input -> post('title');
 		$data['time_month'] = $this -> input -> post('time_month');
 		$data['time_day'] = $this -> input -> post('time_day');
@@ -36,13 +54,13 @@ class Activity extends CI_Controller
 		$data['depart_addr'] = $this -> input -> post('depart_addr');
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
-		$this -> activitymodel -> post_activity($data);
+		$this -> activitymodel -> post_activity($data, $current_user_id);
 		echo json_encode(array(array('is_successful' => 1)));
 	}
 
 	public function join_activity()
 	{
-		$data['sender_id'] = $this -> authlib -> get_user_id();
+		$data['sender_id'] = $this -> input -> post('current_user_id');
 		$data['activity_id'] = $this -> input -> post('activity_id');
 		$data['receiver_id'] = $this -> activitymodel -> get_receiver_id($this -> input -> post('activity_id'));
 		$data['activity_title'] = $this -> activitymodel -> get_activity_title($this -> input -> post('activity_id'));
@@ -73,21 +91,21 @@ class Activity extends CI_Controller
 
 	public function get_post_activities()
 	{
-		$data['user_id'] = $this -> authlib -> get_user_id();
+		$data['user_id'] = $this -> input -> post('current_user_id');
 		$result = $this -> activitymodel -> get_post_activities($data);
 		echo json_encode($result);
 	}
 
 	public function get_join_activities()
 	{
-		$data['user_id'] = $this -> authlib -> get_user_id();
+		$data['user_id'] = $this -> input -> post('current_user_id');
 		$result = $this -> activitymodel -> get_join_activities($data);
 		echo json_encode($result);
 	}
 
 	public function get_notifications()
 	{
-		$data['user_id'] = $this -> authlib -> get_user_id();
+		$data['user_id'] = $this -> input -> post('current_user_id');
 		$result = $this -> activitymodel -> get_notifications($data);
 		echo json_encode($result);
 	}
