@@ -34,6 +34,7 @@ class Activity extends CI_Controller
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
 		$this -> activitymodel -> post_activity($data);
+		echo json_encode(array(array('is_successful' => 1)));
 	}
 
 	public function join_activity()
@@ -45,6 +46,7 @@ class Activity extends CI_Controller
 		$data['status'] = 0;
 		$data['picture_url'] = $this -> authmodel -> get_picture_url($data['sender_id']);
 		$this -> activitymodel -> insert_notification($data);
+		echo json_encode(array(array('is_successful' => 1)));
 	}
 
 	public function agree_join()
@@ -53,6 +55,7 @@ class Activity extends CI_Controller
 		$data['sender_id'] = $this -> input -> post('sender_id');
 		$data['receiver_id'] = $this -> input -> post('receiver_id');
 		$this -> activitymodel -> agree_join($data);
+		echo json_encode(array(array('is_successful' => 1)));
 	}
 
 	public function decline_join()
@@ -61,6 +64,7 @@ class Activity extends CI_Controller
 		$data['sender_id'] = $this -> input -> post('sender_id');
 		$data['receiver_id'] = $this -> input -> post('receiver_id');
 		$this -> activitymodel -> decline_join($data);
+		echo json_encode(array(array('is_successful' => 1)));
 	}
 
 	public function get_post_activities()
