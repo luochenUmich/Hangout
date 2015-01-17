@@ -86,7 +86,7 @@ class Activitymodel extends CI_Model
 			'category' => $data['category'],
 			)
 		);
-		$result = $this -> db -> get -> result_array();
+		$result = $this -> db -> get() -> result_array();
 		return $result;
 	}
 
