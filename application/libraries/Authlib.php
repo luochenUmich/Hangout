@@ -7,7 +7,7 @@ class Authlib
 {
 	function __construct()
 	{
-		$this -> ci = &get_instance();
+		$this -> ci =& get_instance();
 		$this -> ci -> load -> library('session');
 		$this -> ci -> load -> database();
 	}
@@ -16,22 +16,22 @@ class Authlib
 	{
 		$data['user_id'] = $data['id'];
 		$data['is_login'] = true;
-		$this -> session -> set_userdata($data);
+		$this -> ci -> session -> set_userdata($data);
 	}
 
 	function get_user_id()
 	{
-		return $this -> session -> userdata('user_id');
+		return $this -> ci -> session -> userdata('user_id');
 	}
 
 	function log_out()
 	{
-		$this -> session -> session_destroy();
+		$this -> ci -> session -> session_destroy();
 	}
 
 	function is_log_in()
 	{
-		return $this -> session -> userdata('is_login');
+		return $this -> ci -> session -> userdata('is_login');
 	}
 
 }
