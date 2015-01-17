@@ -13,7 +13,7 @@ class User extends CI_Controller
 		$this -> load -> library('authlib');
 		$this -> load -> model('authmodel');
 		//$this -> load -> model('picturemodel');
-		$this -> load -> library('awslib', array('name' => 's3'));
+		//$this -> load -> library('awslib', array('name' => 's3'));
 	}
 
 
