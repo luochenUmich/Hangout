@@ -57,7 +57,6 @@ class User extends CI_Controller
 		if($login_result == 1)
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
-			$this -> authlib -> log_in($data);
 			echo json_encode(array(array('is_successful' => 1, "current_user_id" => $data['id'])));
 		}
 		elseif($login_result == 0)
@@ -66,10 +65,10 @@ class User extends CI_Controller
 			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Unrecognized username!')));
 	}
 
-	// public function upload_picture()
-	// {
-	// 	$data['user_id'] = $this -> authlib -> get_user_id();
-	// 	$data['file_name'] = $this -> input -> 
-	// 	$this -> aws
-	// }
+	public function upload_picture()
+	{
+		$data
+		$data['file_name'] = $this -> input -> 
+		$this -> aws
+	}
 }
