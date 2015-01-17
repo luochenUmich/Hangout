@@ -4,7 +4,7 @@
 * @author Chen Luo
 **/
 
-class Usermodel extends CI_Model
+class Authmodel extends CI_Model
 {
 	function __construct()
 	{
