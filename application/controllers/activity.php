@@ -10,7 +10,7 @@ class Activity extends CI_Controller
 	{
 		parent::__construct();
 		$this -> load -> model('activitymodel');
-		$this -> load -> model('usermodel');
+		$this -> load -> model('authmodel');
 		$this -> load -> library('authlib');
 	}
 
@@ -48,7 +48,7 @@ class Activity extends CI_Controller
 		$data['receiver_id'] = $this -> activitymodel -> get_receiver_id($this -> input -> post('activity_id'));
 		$data['activity_title'] = $this -> activitymodel -> get_activity_title($this -> input -> post('activity_id'));
 		$data['status'] = 0;
-		$data['picture_url'] = $this -> usermodel -> get_picture_url($data['sender_id']);
+		$data['picture_url'] = $this -> authmodel -> get_picture_url($data['sender_id']);
 		$this -> activitymodel -> insert_notification($data);
 	}
 
