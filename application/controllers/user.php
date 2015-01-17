@@ -72,10 +72,10 @@ class User extends CI_Controller
 		$this -> authlib -> log_out();
 	}
 
-	public function upload_picture()
-	{
-		$data['user_id'] = $this -> authlib -> get_user_id();
-		$data['file_name'] = $this -> input -> 
-		$this -> aws
-	}
+	// public function upload_picture()
+	// {
+	// 	$data['user_id'] = $this -> authlib -> get_user_id();
+	// 	$data['file_name'] = $this -> input -> 
+	// 	$this -> aws
+	// }
 }
