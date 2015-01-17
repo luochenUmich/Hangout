@@ -8,8 +8,14 @@ class User extends CI_Controller
 {
 	function __construct()
 	{
-		$this -> load -> library('Authlib');
+		parent::__construct();
+
+		$this -> load -> library('authlib');
 		$this -> load -> model('authmodel');
+	}
+
+	public function index()
+	{
 	}
 
 	public function sign_up()

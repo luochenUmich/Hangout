@@ -8,9 +8,14 @@ class Activity extends CI_Controller
 {
 	function __construct()
 	{
+		parent::__construct();
 		$this -> load -> model('activitymodel');
 		$this -> load -> model('usermodel');
 		$this -> load -> library('authlib');
+	}
+
+	public function index()
+	{
 	}
 
 	public function get_activities()
