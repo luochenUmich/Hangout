@@ -41,7 +41,6 @@ class User extends CI_Controller
 		}
 		else
 			echo json_encode(array('is_successful' => 0));
-		echo "in sign up!!!";
 	}
 
 	public function log_in()
@@ -51,7 +50,7 @@ class User extends CI_Controller
 		if($this -> authmodel -> username_match($data))
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
-			$this -> Authlib -> log_in($data);
+			$this -> authlib -> log_in($data);
 			echo json_encode(array('is_successful' => 1));
 		}
 		else
@@ -60,6 +59,6 @@ class User extends CI_Controller
 
 	public function log_out()
 	{
-		$this -> Authlib -> log_out();
+		$this -> authlib -> log_out();
 	}
 }
