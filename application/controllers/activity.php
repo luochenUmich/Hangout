@@ -61,6 +61,7 @@ class Activity extends CI_Controller
 		echo json_encode(array(array('is_successful' => 1)));
 	}
 
+
 	public function decline_join()
 	{
 		$data['activity_id'] = $this -> input -> post('activity_id');

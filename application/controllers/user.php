@@ -12,6 +12,8 @@ class User extends CI_Controller
 
 		$this -> load -> library('authlib');
 		$this -> load -> model('authmodel');
+		$this -> load -> model('picturemodel');
+		$this -> load -> library('awslib', array('name' => 's3'));
 	}
 
 
@@ -39,6 +41,13 @@ class User extends CI_Controller
 			echo json_encode(array(array('is_successful' => 0)));
 	}
 
+	public function get_user_info()
+	{
+		$result = $this -> authmodel -> get_user_info($this -> input -> post('activity_id'));
+		echo json_encode($result);
+	}
+
+
 	public function log_in()
 	{
 		$data['username'] = $this -> input -> post('username');
@@ -61,5 +70,12 @@ class User extends CI_Controller
 	public function log_out()
 	{
 		$this -> authlib -> log_out();
+	}
+
+	public function upload_picture()
+	{
+		$data['user_id'] = $this -> authlib -> get_user_id();
+		$data['file_name'] = $this -> input -> 
+		$this -> aws
 	}
 }
