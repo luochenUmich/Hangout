@@ -38,9 +38,9 @@ class Usermodel extends CI_Model
 		);
 		$result = $this -> db -> get() -> result_array();
 		if(count($result) == 0)
-			return TRUE;
+			return 1;
 		else
-			return FALSE;
+			return 0;
 	}
 
 	public function username_match($data)
@@ -53,9 +53,9 @@ class Usermodel extends CI_Model
 		);
 		$result = $this -> db -> get() ->  result_array();
 		if(password_verify($data['password'], $result[0]['password'])
-			return TRUE;
+			return 1;
 		else
-			return FALSE;
+			return 0;
 	}
 
 	public function get_user_id($data)
