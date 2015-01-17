@@ -98,7 +98,7 @@ class Activitymodel extends CI_Model
 		$this -> db -> from('activity');
 		$this -> db -> where($data);
 		$activity = $this -> db -> get() -> result_array();
-
+		echo "The user id in session is: " . $this -> authlib -> get_user_id();
 		$this -> db -> insert('post_many', array(
 			'user_id' => $this -> authlib -> get_user_id(),
 			'activity_id' => $activity[0]['id'],
