@@ -31,7 +31,6 @@ class Activity extends CI_Controller
 		$data['dest_lgt'] = $this -> input -> post('dest_lgt');
 		$data['depart_lat'] = $this -> input -> post('depart_lat');
 		$data['depart_lgt'] = $this -> input -> post('depart_lgt');
-		$data['user_id'] = $this -> authlib -> get_user_id();
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
 		$this -> activitymodel -> post_activity($data);
