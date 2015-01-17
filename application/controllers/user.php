@@ -14,10 +14,6 @@ class User extends CI_Controller
 		$this -> load -> model('authmodel');
 	}
 
-	public function index()
-	{
-		$this -> load -> view('index');
-	}
 
 	public function sign_up()
 	{
@@ -37,10 +33,10 @@ class User extends CI_Controller
 
 			$data['picture_url'] = $this -> input -> post('picture_url');
 			$this -> authmodel -> sign_up($data);
-			echo json_encode(array('is_successful' => 1));
+			echo json_encode(array(array('is_successful' => 1));
 		}
 		else
-			echo json_encode(array('is_successful' => 0));
+			echo json_encode(array(array('is_successful' => 0));
 	}
 
 	public function log_in()
