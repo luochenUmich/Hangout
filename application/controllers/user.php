@@ -44,16 +44,18 @@ class User extends CI_Controller
 		$data['username'] = $this -> input -> post('username');
 
 		$data['password'] = $this -> input -> post('password');
-		if($this -> authmodel -> username_match($data))
+
+		$login_result = $this -> authmodel -> username_match($data)
+		if($login_result == 1)
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
 			$this -> authlib -> log_in($data);
 			echo json_encode(array(array('is_successful' => 1)));
-			echo "the username is : " + $data['username'];
 		}
+		elseif($login_result == 0)
+			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'password_wrong')));
 		else
-			echo json_encode(array(array('is_successful' => 0)));
-			echo "the username is : " + $data['username'];
+			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'not_signup')));
 	}
 
 	public function log_out()

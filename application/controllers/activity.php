@@ -30,8 +30,10 @@ class Activity extends CI_Controller
 		$data['time_minute'] = $this -> input -> post('time_minute');
 		$data['dest_lat'] = $this -> input -> post('dest_lat');
 		$data['dest_lgt'] = $this -> input -> post('dest_lgt');
+		$data['dest_addr'] = $this -> input -> post('dest_addr');
 		$data['depart_lat'] = $this -> input -> post('depart_lat');
 		$data['depart_lgt'] = $this -> input -> post('depart_lgt');
+		$data['depart_addr'] = $this -> input -> post('depart_addr');
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
 		$this -> activitymodel -> post_activity($data);

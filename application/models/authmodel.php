@@ -52,6 +52,7 @@ class Authmodel extends CI_Model
 			)
 		);
 		$result = $this -> db -> get() ->  result_array();
+
 		if(password_verify($data['password'], $result[0]['password']))
 			return 1;
 		else
