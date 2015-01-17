@@ -23,10 +23,11 @@ class Activity extends CI_Controller
 
 	public function post_activity()
 	{
-		$data['time_month'] = $this -> input -> post('month');
-		$data['time_day'] = $this -> input -> post('day');
-		$data['time_hour'] = $this -> input -> post('hour');
-		$data['time_minute'] = $this -> input -> post('minute');
+		$data['title'] = $this -> input -> post('title');
+		$data['time_month'] = $this -> input -> post('time_month');
+		$data['time_day'] = $this -> input -> post('time_day');
+		$data['time_hour'] = $this -> input -> post('time_hour');
+		$data['time_minute'] = $this -> input -> post('time_minute');
 		$data['dest_lat'] = $this -> input -> post('dest_lat');
 		$data['dest_lgt'] = $this -> input -> post('dest_lgt');
 		$data['depart_lat'] = $this -> input -> post('depart_lat');
