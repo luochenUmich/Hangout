@@ -14,10 +14,6 @@ class Activity extends CI_Controller
 		$this -> load -> library('authlib');
 	}
 
-	public function index()
-	{
-	}
-
 	public function get_activities()
 	{
 		$data['category'] = $this -> input -> post('category');

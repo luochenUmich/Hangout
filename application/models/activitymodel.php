@@ -120,7 +120,7 @@ class Activitymodel extends CI_Model
 			$this -> db -> select();
 			$this -> db -> from('activity');
 			$this -> db -> where(array(
-				'id' => activity_id['activity_id'],
+				'id' => $activity_id['activity_id'],
 				)
 			);
 			array_push($result, $this -> db -> get() -> result_array());
@@ -143,7 +143,7 @@ class Activitymodel extends CI_Model
 			$this -> db -> select();
 			$this -> db -> from('activity');
 			$this -> db -> where(array(
-				'id' => activity_id['activity_id'],
+				'id' => $activity_id['activity_id'],
 				)
 			);
 			array_push($result, $this -> db -> get() -> result_array());
