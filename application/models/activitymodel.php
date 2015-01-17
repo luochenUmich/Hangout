@@ -9,6 +9,7 @@ class Activitymodel extends CI_Model
 	function __construct()
 	{
 		$this -> load -> database();
+		$this -> load -> library('authlib');
 	}
 
 
@@ -99,7 +100,7 @@ class Activitymodel extends CI_Model
 		$activity = $this -> db -> get() -> result_array();
 
 		$this -> db -> insert('post_many', array(
-			'user_id' => $data['user_id'],
+			'user_id' => $this -> authlib -> get_user_id(),
 			'activity_id' => $activity[0]['id'],
 			)
 		);
