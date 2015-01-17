@@ -26,7 +26,7 @@ class Authlib
 
 	function log_out()
 	{
-		$this -> ci -> session -> session_destroy();
+		$this -> ci -> session -> sess_destroy();
 	}
 
 	function is_log_in()
