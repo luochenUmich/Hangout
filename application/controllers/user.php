@@ -25,7 +25,7 @@ class User extends CI_Controller
 		if($this -> authmodel -> username_no_duplication($data))
 		{
 			$data['phone_number'] = $this -> input -> post('phone_number');
-			$data['password'] = password_hash($this -> input -> post('password'));
+			$data['password'] = password_hash($this -> input -> post('password'), PASSWORD_DEFAULT);
 			$data['email_address'] = $this -> input -> post('email');
 
 			if($this -> input -> post('gender') == 'Male')
