@@ -65,10 +65,10 @@ class User extends CI_Controller
 			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Unrecognized username!')));
 	}
 
-	public function upload_picture()
+/*	public function upload_picture()
 	{
 		$data
 		$data['file_name'] = $this -> input -> 
 		$this -> aws
-	}
+	}*/
 }
