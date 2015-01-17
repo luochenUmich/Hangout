@@ -16,6 +16,7 @@ class User extends CI_Controller
 
 	public function index()
 	{
+		echo "in index";
 	}
 
 	public function sign_up()
