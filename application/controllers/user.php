@@ -22,7 +22,7 @@ class User extends CI_Controller
 	public function sign_up()
 	{
 		$data['username'] = $this -> input -> post('username');
-		if($this -> authmodel -> username_no_duplicate($data))
+		if($this -> authmodel -> username_no_duplication($data))
 		{
 			$data['phone_number'] = $this -> input -> post('phone_number');
 			$data['password'] = password_hash($this -> input -> post('password'));
