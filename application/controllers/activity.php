@@ -34,7 +34,7 @@ class Activity extends CI_Controller
 		$data['user_id'] = $this -> authlib -> get_user_id();
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
-		$this -> activitymodel -> post_activity();
+		$this -> activitymodel -> post_activity($data);
 	}
 
 	public function join_activity()
