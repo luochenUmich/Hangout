@@ -42,6 +42,7 @@ class User extends CI_Controller
 	public function log_in()
 	{
 		$data['username'] = $this -> input -> post('username');
+		echo $data['username'];
 		$data['password'] = $this -> input -> post('password');
 		if($this -> authmodel -> username_match($data))
 		{
