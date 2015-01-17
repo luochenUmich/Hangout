@@ -41,6 +41,7 @@ class User extends CI_Controller
 		}
 		else
 			echo json_encode(array('is_successful' => 0));
+		echo "in sign up!!!";
 	}
 
 	public function log_in()
