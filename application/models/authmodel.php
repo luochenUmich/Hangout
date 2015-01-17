@@ -32,7 +32,7 @@ class Authmodel extends CI_Model
 			'user_id' => $user_id,
 			)
 		);
-		$user_info = $this -> db -> get() => result_array();
+		$user_info = $this -> db -> get() -> result_array();
 		return $user_info;
 	}
 
