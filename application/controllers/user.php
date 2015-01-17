@@ -45,7 +45,7 @@ class User extends CI_Controller
 
 		$data['password'] = $this -> input -> post('password');
 
-		$login_result = $this -> authmodel -> username_match($data)
+		$login_result = $this -> authmodel -> username_match($data);
 		if($login_result == 1)
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
@@ -53,9 +53,9 @@ class User extends CI_Controller
 			echo json_encode(array(array('is_successful' => 1)));
 		}
 		elseif($login_result == 0)
-			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'password_wrong')));
+			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Incorrect password!')));
 		else
-			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'not_signup')));
+			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Unrecognized username!')));
 	}
 
 	public function log_out()
