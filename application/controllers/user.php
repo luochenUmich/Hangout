@@ -58,7 +58,7 @@ class User extends CI_Controller
 		if($login_result == 1)
 		{
 			$data['id'] = $this -> authmodel -> get_user_id($data);
-			echo "The user id is: ": . $data['id'];
+			echo "The user id is: " . $data['id'];
 			$this -> authlib -> log_in($data);
 			echo "The user id in session is: " . $this -> authlib -> get_user_id();
 			echo json_encode(array(array('is_successful' => 1)));
