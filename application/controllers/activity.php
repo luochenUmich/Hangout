@@ -64,7 +64,7 @@ class Activity extends CI_Controller
 		$data['sender_id'] = $this -> input -> post('current_user_id');
 		$data['activity_id'] = $this -> input -> post('activity_id');
 		$data['receiver_id'] = $this -> activitymodel -> get_receiver_id($data['activity_id']);
-		$data['activity_title'] = $this -> activitymodel -> get_activity_title($data['activity_id']));
+		$data['activity_title'] = $this -> activitymodel -> get_activity_title($data['activity_id']);
 		$data['status'] = 0;
 		$data['picture_url'] = $this -> authmodel -> get_picture_url($data['sender_id']);
 		$this -> activitymodel -> insert_notification($data);
