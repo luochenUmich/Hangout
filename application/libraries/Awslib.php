@@ -23,6 +23,7 @@ class Awslib
         if($service['name'] == 's3') {
             $this -> s3 = S3Client::factory($config);
             //$this -> s3 -> disable_ssl_verification();  
+        }
     }
 
     public function s3_upload_file($data)
