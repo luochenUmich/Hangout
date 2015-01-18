@@ -17,7 +17,7 @@ class Activitymodel extends CI_Model
 		$this -> db -> select('user_id');
 		$this -> db -> from('post_many');
 		$this -> db -> where(array(
-			'activity_id' => $data['activity_id'],
+			'activity_id' => $activity_id,
 			)
 		);
 
@@ -122,7 +122,8 @@ class Activitymodel extends CI_Model
 				'id' => $activity_id['activity_id'],
 				)
 			);
-			array_push($result, $this -> db -> get() -> result_array());
+			$activity = $this -> db -> get() -> result_array();
+			array_push($result, $activity);
 		}
 		return $result;
 	}
@@ -132,7 +133,7 @@ class Activitymodel extends CI_Model
 		$this -> db -> select('activity_id');
 		$this -> db -> from('join_many');
 		$this -> db -> where(array(
-			'user_id' => $data['user_id'],
+			'user_id' => $data['current_user_id'],
 			)
 		);
 		$activity_id_list = $this -> db -> get() -> result_array();
@@ -155,7 +156,7 @@ class Activitymodel extends CI_Model
 		$this -> db -> select();
 		$this -> db -> from('notification');
 		$this -> db -> where(array(
-			'receiver_id' => $data['user_id'],
+			'receiver_id' => $data['current_user_id'],
 			'status' => 0,
 			)
 		);
