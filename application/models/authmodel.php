@@ -34,7 +34,7 @@ class Authmodel extends CI_Model
 		$this -> db -> select();
 		$this -> db -> from('user');
 		$this -> db -> where(array(
-			'user_id' => $user_id,
+			'id' => $user_id,
 			)
 		);
 		$user_info = $this -> db -> get() -> result_array();
