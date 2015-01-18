@@ -116,7 +116,7 @@ class Activity extends CI_Controller
 
 	public function get_join_activities()
 	{
-		$data['currnet_user_id'] = $this -> input -> post('current_user_id');
+		$data['user_id'] = $this -> input -> post('current_user_id');
 		$result = $this -> activitymodel -> get_join_activities($data);
 		echo json_encode($result);
 	}

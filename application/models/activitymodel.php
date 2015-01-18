@@ -133,7 +133,7 @@ class Activitymodel extends CI_Model
 		$this -> db -> select('activity_id');
 		$this -> db -> from('join_many');
 		$this -> db -> where(array(
-			'user_id' => $data['current_user_id'],
+			'user_id' => $data['user_id'],
 			)
 		);
 		$activity_id_list = $this -> db -> get() -> result_array();
