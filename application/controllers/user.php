@@ -11,8 +11,8 @@ class User extends CI_Controller
 		parent::__construct();
 
 		$this -> load -> model('authmodel');
-		$this -> load -> model('picturemodel');
-		$this -> load -> library('awslib', array('name' => 's3'));
+		//$this -> load -> model('picturemodel');
+		//$this -> load -> library('awslib', array('name' => 's3'));
 	}
 
 
@@ -65,7 +65,7 @@ class User extends CI_Controller
 			echo json_encode(array(array('is_successful' => 0, 'fail_reason' => 'Unrecognized username!')));
 	}
 
-	public function upload_picture()
+/*	public function upload_picture()
 	{
 		$current_user_id = $this -> input -> post('current_user_id');
 		$file_name = $_FILES[0]['name'];
@@ -73,5 +73,5 @@ class User extends CI_Controller
 		$res = $this -> awslib -> s3_upload($current_user_id, $file_name, $file_content);
 		$res['current_user_id'] = $current_user_id;
 		$this -> picturemodel -> attach_picture($res);
-	}
+	}*/
 }
