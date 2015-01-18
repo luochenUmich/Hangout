@@ -54,6 +54,24 @@ class Activity extends CI_Controller
 		$data['depart_addr'] = $this -> input -> post('depart_addr');
 		$data['description'] = $this -> input -> post('description');
 		$data['category'] = $this -> input -> post('category');
+		switch($category)
+		{
+			case 'food':
+				$data['category'] = 0;
+				break;
+			case 'sport':
+				$data['category'] = 1;
+				break;
+			case 'study':
+				$data['category'] = 2;
+				break;
+			case 'movie':
+				$data['category'] = 3;
+				break;
+			case 'other':
+				$data['category'] = 4;
+				break;
+		}
 		$this -> activitymodel -> post_activity($data, $current_user_id);
 		echo json_encode(array(array('is_successful' => 1)));
 	}
