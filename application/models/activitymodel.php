@@ -161,6 +161,7 @@ class Activitymodel extends CI_Model
 			'status' => 0,
 			)
 		);
+		$this -> db -> join('user', 'user.id = sender_id');
 		$result = $this -> db -> get() -> result_array();
 		return $result;
 	}
