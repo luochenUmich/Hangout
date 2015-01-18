@@ -75,7 +75,7 @@ class Activity extends CI_Controller
 	{
 		$data['activity_id'] = $this -> input -> post('activity_id');
 		$data['sender_id'] = $this -> input -> post('sender_id');
-		$data['receiver_id'] = $this -> input -> post('receiver_id');
+		$data['receiver_id'] = $this -> input -> post('currnet_user_id');
 		$this -> activitymodel -> agree_join($data);
 		echo json_encode(array(array('is_successful' => 1)));
 	}
@@ -85,7 +85,7 @@ class Activity extends CI_Controller
 	{
 		$data['activity_id'] = $this -> input -> post('activity_id');
 		$data['sender_id'] = $this -> input -> post('sender_id');
-		$data['receiver_id'] = $this -> input -> post('receiver_id');
+		$data['receiver_id'] = $this -> input -> post('current_user_id');
 		$this -> activitymodel -> decline_join($data);
 		echo json_encode(array(array('is_successful' => 1)));
 	}
