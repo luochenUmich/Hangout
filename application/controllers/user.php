@@ -72,6 +72,6 @@ class User extends CI_Controller
 		$file_content = $_FILES[0]['temp_name'];
 		$res = $this -> awslib -> s3_upload($current_user_id, $file_name, $file_content);
 		$res['current_user_id'] = $current_user_id;
-		$this -> picturemodel -> attach_picture($res)
+		$this -> picturemodel -> attach_picture($res);
 	}
 }
