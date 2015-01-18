@@ -123,7 +123,7 @@ class Activitymodel extends CI_Model
 				)
 			);
 			$activity = $this -> db -> get() -> result_array();
-			array_push($result, $activity);
+			array_push($result, $activity[0]);
 		}
 		return $result;
 	}
@@ -146,7 +146,8 @@ class Activitymodel extends CI_Model
 				'id' => $activity_id['activity_id'],
 				)
 			);
-			array_push($result, $this -> db -> get() -> result_array());
+			$activity = $this -> db -> get() -> result_array();
+			array_push($result, $activity[0]);
 		}
 		return $result;
 	}
