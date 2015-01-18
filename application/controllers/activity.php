@@ -58,7 +58,7 @@ class Activity extends CI_Controller
 			case 'food':
 				$data['category'] = 0;
 				break;
-			case 'sport':
+			case 'sports':
 				$data['category'] = 1;
 				break;
 			case 'study':
@@ -92,7 +92,7 @@ class Activity extends CI_Controller
 	{
 		$data['activity_id'] = $this -> input -> post('activity_id');
 		$data['sender_id'] = $this -> input -> post('sender_id');
-		$data['receiver_id'] = $this -> input -> post('currnet_user_id');
+		$data['receiver_id'] = $this -> input -> post('current_user_id');
 		$this -> activitymodel -> agree_join($data);
 		echo json_encode(array(array('is_successful' => 1)));
 	}
