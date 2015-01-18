@@ -53,8 +53,7 @@ class Activity extends CI_Controller
 		$data['depart_lgt'] = $this -> input -> post('depart_lgt');
 		$data['depart_addr'] = $this -> input -> post('depart_addr');
 		$data['description'] = $this -> input -> post('description');
-		$data['category'] = $this -> input -> post('category');
-		switch($category)
+		switch($this -> input -> post('category'))
 		{
 			case 'food':
 				$data['category'] = 0;
